@@ -27,12 +27,60 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-assign led[7:1] = 7'b0;
-
-blinker awesome_blinker (
-	.clk(clk),
+pwm #(.CTR_LEN(3)) pwm_1 (
 	.rst(rst),
-	.blink(led[0])
+	.clk(clk),
+	.compare(3'd0),
+	.pwm(led[0])
+);
+
+pwm #(.CTR_LEN(3)) pwm_2 (
+	.rst(rst),
+	.clk(clk),
+	.compare(3'd1),
+	.pwm(led[1])
+);
+
+pwm #(.CTR_LEN(3)) pwm_3 (
+	.rst(rst),
+	.clk(clk),
+	.compare(3'd2),
+	.pwm(led[2])
+);
+
+pwm #(.CTR_LEN(3)) pwm_4 (
+	.rst(rst),
+	.clk(clk),
+	.compare(3'd3),
+	.pwm(led[3])
+);
+
+pwm #(.CTR_LEN(3)) pwm_5 (
+	.rst(rst),
+	.clk(clk),
+	.compare(3'd4),
+	.pwm(led[4])
+);
+
+pwm #(.CTR_LEN(3)) pwm_6 (
+	.rst(rst),
+	.clk(clk),
+	.compare(3'd5),
+	.pwm(led[5])
+);
+
+pwm #(.CTR_LEN(3)) pwm_7 (
+	.rst(rst),
+	.clk(clk),
+	.compare(3'd6),
+	.pwm(led[6])
+);
+
+pwm #(.CTR_LEN(3)) pwm_8 (
+	.rst(rst),
+	.clk(clk),
+	.compare(3'd7),
+	.pwm(led[7])
 );
 
 endmodule
