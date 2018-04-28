@@ -27,16 +27,22 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-genvar i;
-generate
-	for (i = 0; i < 8; i=i+1) begin: pwn_gen_loop
-	pwm #(.CTR_LEN(3)) pwm (
-		.rst(rst),
-		.clk(clk),
-		.compare(i),
-		.pwm(led[i])
-	);
-	end
-endgenerate
+assign led = {8{pwm}};
+
+wire [7:0] compare;
+wire pwm;
+
+counter fancyCounter (
+.rst(rst),
+.clk(clk),
+.value(compare)
+);
+
+pwm #(.CTR_LEN(8)) fancyPWM (
+	.rst(rst),
+	.clk(clk),
+	.compare(compare),
+	.pwm(pwm)
+);
 
 endmodule
