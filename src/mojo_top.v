@@ -17,7 +17,8 @@ module mojo_top(
     // Serial connections
     input avr_tx, // AVR Tx => FPGA Rx
     output avr_rx, // AVR Rx => FPGA Tx
-    input avr_rx_busy // AVR Rx buffer full
+    input avr_rx_busy, // AVR Rx buffer full
+	 input button
     );
 
 wire rst = ~rst_n; // make reset active high
@@ -27,22 +28,7 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-assign led = {8{pwm}};
-
-wire [7:0] compare;
-wire pwm;
-
-counter fancyCounter (
-.rst(rst),
-.clk(clk),
-.value(compare)
-);
-
-pwm #(.CTR_LEN(8)) fancyPWM (
-	.rst(rst),
-	.clk(clk),
-	.compare(compare),
-	.pwm(pwm)
-);
+assign led[7:1] = 7'b0;
+assign led[0] = button;
 
 endmodule
