@@ -31,3 +31,11 @@ NET "avr_rx" LOC = P59 | IOSTANDARD = LVTTL;
 NET "avr_rx_busy" LOC = P39 | IOSTANDARD = LVTTL;
 
 NET "button" LOC = P50 | IOSTANDARD = LVCMOS33;
+
+NET "rs" LOC = P21;
+NET "rw" LOC = P23;
+NET "en" LOC = P26;
+NET "d4" LOC = P29;
+NET "d5" LOC = P32;
+NET "d6" LOC = P34;
+NET "d7" LOC = P40;

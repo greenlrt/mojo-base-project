@@ -18,7 +18,14 @@ module mojo_top(
     input avr_tx, // AVR Tx => FPGA Rx
     output avr_rx, // AVR Rx => FPGA Tx
     input avr_rx_busy, // AVR Rx buffer full
-	 input button
+	 input button,
+	 output rs,
+	 output rw,
+	 output en,
+	 output d4,
+	 output d5,
+	 output d6,
+	 output d7
     );
 
 wire rst = ~rst_n; // make reset active high
@@ -30,5 +37,16 @@ assign spi_channel = 4'bzzzz;
 
 assign led[7:1] = 7'b0;
 assign led[0] = button;
+
+LCD lcd (
+	.clk(clk),
+	.rs(rs),
+	.rw(rw),
+	.en(en),
+	.d4(d4),
+	.d5(d5),
+	.d6(d6),
+	.d7(d7)
+);
 
 endmodule
