@@ -34,8 +34,8 @@ module LCD(
 			10: lcd_code <= 6'h28;
 			11: lcd_code <= 6'h26; // e
 			12: lcd_code <= 6'h25; 
-			13: lcd_code <= 6'h26; // e
-			14: lcd_code <= 6'h25;
+			13: lcd_code <= 6'h26; // l
+			14: lcd_code <= 6'h2C;
 			15: lcd_code <= 6'h26; // l
 			16: lcd_code <= 6'h2C;
 			17: lcd_code <= 6'h26; // o
