@@ -27,6 +27,13 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-assign led = 8'b0;
+microblaze_mcs mcs_0 (
+	.Clk(clk), // input Clk
+	.Reset(rst), // input Reset
+	.FIT1_Interrupt(), // output FIT1_Interrupt
+	.FIT1_Toggle(), // output FIT1_Toggle
+	.GPO1(led), // output [7 : 0] GP01
+	.INTC_IRQ() // output INTC_IRQ
+);
 
 endmodule
